@@ -1,0 +1,195 @@
+{
+  "litigation_summary": [
+    {"key":"active_cases","value":"14"},{"key":"high_risk_cases","value":"4"},
+    {"key":"total_exposure","value":"$8.6M"},{"key":"avg_win_probability","value":"69"},
+    {"key":"cases_resolved_ytd","value":"31"},{"key":"favorable_outcomes","value":"24"}
+  ],
+  "litigation_risk_factors": [
+    {"subject":"Contractual Breach","score":78},{"subject":"IP Infringement","score":45},
+    {"subject":"Employment","score":32},{"subject":"Regulatory","score":61},
+    {"subject":"Data Privacy","score":55},{"subject":"Antitrust","score":20}
+  ],
+  "case_outcomes": [
+    {"month":"Jan","won":4,"settled":2,"lost":1},{"month":"Feb","won":3,"settled":3,"lost":0},
+    {"month":"Mar","won":5,"settled":1,"lost":2},{"month":"Apr","won":6,"settled":2,"lost":1},
+    {"month":"May","won":4,"settled":4,"lost":0},{"month":"Jun","won":7,"settled":2,"lost":1}
+  ],
+  "cost_trends": [
+    {"month":"Jan","projected":420,"actual":390},{"month":"Feb","projected":480,"actual":460},
+    {"month":"Mar","projected":350,"actual":380},{"month":"Apr","projected":520,"actual":490},
+    {"month":"May","projected":610,"actual":570},{"month":"Jun","projected":580,"actual":null}
+  ],
+  "litigation_cases": [
+    {"id":"LIT-001","title":"Westbrook Corp vs. Nexus Technologies","type":"Contractual Breach","risk":72,"status":"In Discovery","nextHearing":"Jun 28, 2026","exposure":"$2.4M","winProb":67,"counsel":"Morrison & Foerster","ai_recommendation":"Recommend pursuing early settlement negotiation. Similar cases resolved 40% faster with 23% cost reduction when settled in discovery phase. Confidence: 84%"},
+    {"id":"LIT-002","title":"Patent Infringement – TechVault LLC","type":"IP Dispute","risk":45,"status":"Pre-Trial","nextHearing":"Jul 12, 2026","exposure":"$850K","winProb":82,"counsel":"Wilson Sonsini","ai_recommendation":"Strong prior-art defense identified. Recommend filing IPR petition simultaneously with trial defense. Confidence: 88%"},
+    {"id":"LIT-003","title":"Ex-Employee NDA Violation","type":"Employment","risk":31,"status":"Mediation","nextHearing":"Jun 18, 2026","exposure":"$120K","winProb":91,"counsel":"Baker McKenzie","ai_recommendation":"Mediation proceeding favorably. Recommend counter at $45K with confidentiality clause. Confidence: 91%"},
+    {"id":"LIT-004","title":"GDPR Enforcement – EU RegBody","type":"Regulatory","risk":88,"status":"Active","nextHearing":"Jun 22, 2026","exposure":"$5.2M","winProb":38,"counsel":"Linklaters","ai_recommendation":"High-risk regulatory enforcement. Recommend immediate engagement with DPA. Voluntary disclosure could reduce fine by 30-50%. Confidence: 76%"}
+  ],
+  "expansion_jurisdictions": [
+    {"code":"EU","name":"European Union","flag":"🇪🇺","status":"active","readiness":82,"regulations":["GDPR","AI Act","DSA","DMA"],"risks":[{"label":"Data Privacy","level":"high"},{"label":"AI Compliance","level":"medium"},{"label":"Tax Complexity","level":"high"}],"timeline":"4–6 months","cost":"$320K","score":[{"subject":"Legal","A":78},{"subject":"Tax","A":55},{"subject":"Labor","A":85},{"subject":"IP","A":90},{"subject":"Data","A":42},{"subject":"Corp","A":70}],"tasks":[{"done":true,"text":"GDPR Data Processing Agreement drafted"},{"done":true,"text":"EU Entity formation (Netherlands BV)"},{"done":false,"text":"AI Act compliance assessment"},{"done":false,"text":"VAT registration in 5 member states"},{"done":false,"text":"Employment contracts — local law review"}],"ai_insight":"GDPR and the new AI Act present significant compliance hurdles."},
+    {"code":"SG","name":"Singapore","flag":"🇸🇬","status":"planning","readiness":65,"regulations":["PDPA","MAS Guidelines","Companies Act"],"risks":[{"label":"Licensing","level":"medium"},{"label":"Data Transfer","level":"low"},{"label":"FX Controls","level":"low"}],"timeline":"2–3 months","cost":"$85K","score":[{"subject":"Legal","A":88},{"subject":"Tax","A":79},{"subject":"Labor","A":82},{"subject":"IP","A":85},{"subject":"Data","A":68},{"subject":"Corp","A":91}],"tasks":[{"done":true,"text":"PDPA compliance gap analysis"},{"done":false,"text":"Singapore Pte Ltd incorporation"},{"done":false,"text":"MAS AI guidelines review"},{"done":false,"text":"Employment Pass applications"}],"ai_insight":"Singapore offers the most favorable regulatory environment."},
+    {"code":"IN","name":"India","flag":"🇮🇳","status":"research","readiness":41,"regulations":["DPDP Act","IT Act","FEMA","Companies Act"],"risks":[{"label":"Regulatory Flux","level":"high"},{"label":"IP Enforcement","level":"medium"},{"label":"FDI Restrictions","level":"medium"}],"timeline":"6–9 months","cost":"$140K","score":[{"subject":"Legal","A":55},{"subject":"Tax","A":48},{"subject":"Labor","A":62},{"subject":"IP","A":58},{"subject":"Data","A":35},{"subject":"Corp","A":52}],"tasks":[{"done":false,"text":"DPDP Act readiness assessment"},{"done":false,"text":"FDI structure — FEMA compliance"},{"done":false,"text":"Indian subsidiary incorporation"},{"done":false,"text":"GST registration and compliance"},{"done":false,"text":"Local counsel engagement"}],"ai_insight":"Regulatory environment is in flux. Wait 2 quarters for clarity."},
+    {"code":"US","name":"United States","flag":"🇺🇸","status":"active","readiness":94,"regulations":["CCPA","SOX","HIPAA","State Laws"],"risks":[{"label":"State Patchwork","level":"medium"},{"label":"Litigation","level":"high"},{"label":"Employment","level":"medium"}],"timeline":"1–2 months","cost":"$45K","score":[{"subject":"Legal","A":95},{"subject":"Tax","A":88},{"subject":"Labor","A":80},{"subject":"IP","A":97},{"subject":"Data","A":75},{"subject":"Corp","A":96}],"tasks":[{"done":true,"text":"Delaware C-Corp formation"},{"done":true,"text":"CCPA compliance program"},{"done":true,"text":"IP portfolio registration"},{"done":false,"text":"Multi-state employment compliance"}],"ai_insight":"US operations are mature. Focus on multi-state employment compliance."}
+  ],
+  "expansion_cost_comparison": [
+    {"name":"EU","cost":320,"time":5.0},{"name":"Singapore","cost":85,"time":2.5},
+    {"name":"India","cost":140,"time":7.5},{"name":"USA","cost":45,"time":1.5}
+  ],
+  "governance_summary": [
+    {"key":"board_members","value":"6"},{"key":"resolutions_ytd","value":"14"},
+    {"key":"esop_granted_pct","value":"8.2"},{"key":"avg_attendance","value":"92"}
+  ],
+  "board_members": [
+    {"id":1,"name":"Sarah Chen","role":"Chairperson","committees":["Audit","Risk"],"tenure":"4y 2m","attendance":95,"independent":true,"avatar":"SC"},
+    {"id":2,"name":"Marcus Okafor","role":"CEO (Executive)","committees":["Strategy"],"tenure":"3y 8m","attendance":100,"independent":false,"avatar":"MO"},
+    {"id":3,"name":"Priya Krishnamurthy","role":"Independent Director","committees":["Audit","Compensation"],"tenure":"2y 5m","attendance":88,"independent":true,"avatar":"PK"},
+    {"id":4,"name":"James Whitfield","role":"CFO (Executive)","committees":["Finance","Risk"],"tenure":"5y 1m","attendance":92,"independent":false,"avatar":"JW"},
+    {"id":5,"name":"Dr. Anika Müller","role":"Independent Director","committees":["Compensation","Strategy"],"tenure":"1y 11m","attendance":96,"independent":true,"avatar":"AM"},
+    {"id":6,"name":"Robert Lin","role":"Independent Director","committees":["Risk","Finance"],"tenure":"3y 0m","attendance":84,"independent":true,"avatar":"RL"}
+  ],
+  "board_resolutions": [
+    {"id":"BR-2026-14","title":"Approval of FY2026 Annual Budget","date":"May 15, 2026","status":"passed","votes":{"for":6,"against":0,"abstain":0},"type":"Financial"},
+    {"id":"BR-2026-13","title":"Series C Funding Term Sheet Authorization","date":"May 8, 2026","status":"passed","votes":{"for":5,"against":1,"abstain":0},"type":"Corporate"},
+    {"id":"BR-2026-12","title":"ESOP Pool Expansion — Additional 5%","date":"Apr 22, 2026","status":"passed","votes":{"for":5,"against":0,"abstain":1},"type":"Compensation"},
+    {"id":"BR-2026-11","title":"EU Subsidiary Incorporation Approval","date":"Apr 10, 2026","status":"passed","votes":{"for":6,"against":0,"abstain":0},"type":"Corporate"},
+    {"id":"BR-2026-10","title":"CEO Compensation Review FY2026","date":"Mar 28, 2026","status":"passed","votes":{"for":4,"against":0,"abstain":2},"type":"Compensation"}
+  ],
+  "esop_data": [
+    {"key":"total_pool_pct","value":"15.0"},{"key":"granted_pct","value":"10.8"},{"key":"available_pct","value":"4.2"},
+    {"key":"distribution","value":"[{\"name\":\"Employees\",\"value\":72,\"color\":\"#2563EB\"},{\"name\":\"Available\",\"value\":28,\"color\":\"#1F2937\"}]"},
+    {"key":"vesting_data","value":"[{\"quarter\":\"Q1'25\",\"vested\":120},{\"quarter\":\"Q2'25\",\"vested\":85},{\"quarter\":\"Q3'25\",\"vested\":145},{\"quarter\":\"Q4'25\",\"vested\":210},{\"quarter\":\"Q1'26\",\"vested\":180},{\"quarter\":\"Q2'26\",\"vested\":95}]"}
+  ],
+  "governance_calendar": [
+    {"date":"Jun 25","title":"Q2 2026 Board Meeting","type":"meeting","urgent":false},
+    {"date":"Jul 1","title":"ESOP Vesting Cliff — Batch 4","type":"esop","urgent":false},
+    {"date":"Jul 15","title":"Annual General Meeting","type":"agm","urgent":true},
+    {"date":"Aug 1","title":"Director Appointment Vote","type":"vote","urgent":false},
+    {"date":"Sep 30","title":"Annual Report Filing Deadline","type":"compliance","urgent":false}
+  ],
+  "analytics_kpis": [
+    {"key":"total_legal_spend","value":"$2.1M"},{"key":"spend_change","value":"+8%"},
+    {"key":"cost_per_matter","value":"$4,820"},{"key":"cost_change","value":"-12%"},
+    {"key":"matter_cycle_time","value":"8.3 days"},{"key":"cycle_change","value":"-22%"},
+    {"key":"prevention_rate","value":"74%"},{"key":"prevention_change","value":"+11%"},
+    {"key":"attorney_hours_saved","value":"847"},{"key":"ai_savings_usd","value":"212000"}
+  ],
+  "legal_spend": [
+    {"month":"Jan","internal":180,"external":320,"budget":520},{"month":"Feb","internal":210,"external":290,"budget":520},
+    {"month":"Mar","internal":195,"external":410,"budget":600},{"month":"Apr","internal":220,"external":360,"budget":580},
+    {"month":"May","internal":240,"external":280,"budget":520},{"month":"Jun","internal":200,"external":350,"budget":550}
+  ],
+  "risk_trends_analytics": [
+    {"month":"Jan","contractRisk":62,"complianceRisk":45,"litigationRisk":38},
+    {"month":"Feb","contractRisk":58,"complianceRisk":42,"litigationRisk":41},
+    {"month":"Mar","contractRisk":71,"complianceRisk":39,"litigationRisk":55},
+    {"month":"Apr","contractRisk":65,"complianceRisk":51,"litigationRisk":48},
+    {"month":"May","contractRisk":55,"complianceRisk":43,"litigationRisk":52},
+    {"month":"Jun","contractRisk":48,"complianceRisk":38,"litigationRisk":44}
+  ],
+  "efficiency_metrics": [
+    {"name":"Contract Review","aiTime":2.1,"manualTime":14.0},{"name":"Due Diligence","aiTime":5.5,"manualTime":40.0},
+    {"name":"Compliance Check","aiTime":1.2,"manualTime":8.0},{"name":"Risk Assessment","aiTime":0.8,"manualTime":6.0},
+    {"name":"NDA Analysis","aiTime":0.3,"manualTime":2.5}
+  ],
+  "matters_by_category": [
+    {"name":"Commercial","value":34,"color":"#2563EB"},{"name":"Employment","value":22,"color":"#10B981"},
+    {"name":"IP & Tech","value":18,"color":"#8B5CF6"},{"name":"Regulatory","value":15,"color":"#F59E0B"},
+    {"name":"Litigation","value":11,"color":"#EF4444"}
+  ],
+  "spend_forecast": [
+    {"month":"Jul","forecast":510,"lower":460,"upper":560},{"month":"Aug","forecast":530,"lower":470,"upper":590},
+    {"month":"Sep","forecast":490,"lower":430,"upper":550},{"month":"Oct","forecast":540,"lower":480,"upper":600},
+    {"month":"Nov","forecast":580,"lower":510,"upper":650},{"month":"Dec","forecast":620,"lower":550,"upper":690}
+  ],
+  "executive_summary": [
+    {"key":"ai_efficiency","value":"AI automation saved 847 attorney-hours this quarter, equivalent to $212K in external counsel fees. Contract review automation leads at 85% time reduction."},
+    {"key":"priority_risks","value":"GDPR enforcement action and Westbrook litigation are highest financial exposure at $7.6M combined. Recommend immediate senior counsel escalation."},
+    {"key":"q3_forecast","value":"Projected spend of $1.54M for H2 2026 within 5% of budget. Contract pipeline growth suggests 18% increase in commercial matters."}
+  ],
+  "digital_twin_summary": [
+    {"key":"total_entities","value":"9"},{"key":"total_jurisdictions","value":"8"},
+    {"key":"active_directors","value":"18"},{"key":"legal_exposure","value":"Medium"}
+  ],
+  "legal_entities": [
+    {"id":1,"name":"Acme Corporation (Parent)","type":"C-Corporation","jurisdiction":"Delaware, USA","risk":"low"},
+    {"id":2,"name":"Acme Innovation Labs Inc.","type":"C-Corporation","jurisdiction":"California, USA","risk":"low"},
+    {"id":3,"name":"Acme Financial Services LLC","type":"LLC","jurisdiction":"New York, USA","risk":"medium"},
+    {"id":4,"name":"Acme EU Holdings B.V.","type":"Besloten Vennootschap (B.V.)","jurisdiction":"Netherlands (Amsterdam)","risk":"medium"},
+    {"id":5,"name":"Acme UK Limited","type":"Private Limited Company","jurisdiction":"United Kingdom (London)","risk":"low"},
+    {"id":6,"name":"Acme GmbH","type":"Gesellschaft mit beschränkter Haftung","jurisdiction":"Germany (Berlin)","risk":"low"},
+    {"id":7,"name":"Acme APAC Pte Ltd","type":"Private Limited Company","jurisdiction":"Singapore","risk":"high"},
+    {"id":8,"name":"Acme India Private Limited","type":"Private Limited Company","jurisdiction":"India (Mumbai)","risk":"medium"},
+    {"id":9,"name":"Acme-TechCorp JV Holdings Ltd.","type":"Joint Venture (50/50)","jurisdiction":"Cayman Islands","risk":"high"}
+  ],
+  "directors": [
+    {"name":"Jennifer L. Harrington","role":"Chief Executive Officer (CEO)","entities":7,"conflicts":0},
+    {"name":"Marcus D. Okafor","role":"Chief Financial Officer (CFO)","entities":5,"conflicts":0},
+    {"name":"Dr. Priya Mehta","role":"Chief Technology Officer (CTO)","entities":3,"conflicts":0},
+    {"name":"Alice Johnson","role":"General Counsel & Corporate Secretary","entities":9,"conflicts":1},
+    {"name":"Samuel K. Brennan","role":"Chief Operating Officer (COO)","entities":4,"conflicts":0},
+    {"name":"Vivienne Lau","role":"Chief Compliance Officer (CCO)","entities":6,"conflicts":0},
+    {"name":"Robert A. Williams","role":"Independent Director / Audit Committee Chair","entities":2,"conflicts":0},
+    {"name":"Dr. Fatima Al-Rashidi","role":"Independent Director / Compensation Committee","entities":2,"conflicts":1},
+    {"name":"James T. Nakamura","role":"Independent Director / Risk Committee Chair","entities":3,"conflicts":0},
+    {"name":"Helena Svensson","role":"Independent Director (EU Rep.)","entities":2,"conflicts":0},
+    {"name":"Rajesh Iyer","role":"Managing Director — Acme India Pvt Ltd","entities":2,"conflicts":0},
+    {"name":"Sophie Moreau","role":"Director — Acme EU Holdings B.V. / Acme GmbH","entities":2,"conflicts":0},
+    {"name":"David Ong Wei Ming","role":"Director — Acme APAC Pte Ltd","entities":1,"conflicts":1},
+    {"name":"Thomas J. Fitzgerald","role":"Director — Acme Financial Services LLC","entities":1,"conflicts":0},
+    {"name":"Nadia Petrov","role":"Director — Acme UK Limited","entities":1,"conflicts":0},
+    {"name":"Huang Wei","role":"JV Representative — Acme-TechCorp JV Holdings","entities":1,"conflicts":2},
+    {"name":"Christopher A. Evans","role":"VP Legal & Deputy General Counsel","entities":5,"conflicts":0},
+    {"name":"Laura Kim","role":"Associate General Counsel — APAC & India","entities":3,"conflicts":0}
+  ],
+  "kg_summary": [
+    {"key":"total_nodes","value":"247"},{"key":"total_relationships","value":"1038"},
+    {"key":"high_risk_links","value":"18"},{"key":"documents_indexed","value":"891"}
+  ],
+  "kg_nodes": [
+    {"id":"n1","label":"Master SaaS Agreement","sublabel":"Acme Corp","type":"contract","x":300,"y":100,"risk":"low","icon":"📄"},
+    {"id":"n2","label":"GDPR DPA","sublabel":"EU Operations","type":"regulation","x":580,"y":80,"risk":"high","icon":"⚖️"},
+    {"id":"n3","label":"IP License","sublabel":"Patent Pool A","type":"contract","x":120,"y":220,"risk":"medium","icon":"🔗"},
+    {"id":"n4","label":"Employment Agreement","sublabel":"Key Personnel","type":"entity","x":480,"y":250,"risk":"low","icon":"👥"},
+    {"id":"n5","label":"Subsidiary","sublabel":"LexOS EU BV","type":"entity","x":300,"y":360,"risk":"medium","icon":"🏢"},
+    {"id":"n6","label":"SOC 2 Type II","sublabel":"Compliance","type":"compliance","x":140,"y":380,"risk":"low","icon":"🛡️"},
+    {"id":"n7","label":"Litigation","sublabel":"Westbrook Case","type":"litigation","x":550,"y":380,"risk":"high","icon":"⚠️"},
+    {"id":"n8","label":"Indemnification","sublabel":"Clause A-7","type":"clause","x":420,"y":480,"risk":"medium","icon":"📋"}
+  ],
+  "kg_edges": [
+    {"source":"n1","target":"n2","label":"governed by"},{"source":"n1","target":"n3","label":"licenses"},
+    {"source":"n1","target":"n4","label":"employs"},{"source":"n2","target":"n5","label":"applies to"},
+    {"source":"n5","target":"n6","label":"certified by"},{"source":"n4","target":"n7","label":"involved in"},
+    {"source":"n7","target":"n8","label":"invokes"},{"source":"n1","target":"n8","label":"contains"}
+  ],
+  "kg_relationships": [
+    {"id":"R-001","from_entity":"Master SaaS Agreement (Acme Corp)","to_entity":"GDPR Data Processing Agreement","relation":"Governed By","type":"regulatory","risk":"high"},
+    {"id":"R-002","from_entity":"Master SaaS Agreement (Acme Corp)","to_entity":"IP License – Patent Pool A","relation":"Licenses","type":"contractual","risk":"medium"},
+    {"id":"R-003","from_entity":"GDPR DPA","to_entity":"LexOS EU BV","relation":"Binds Entity","type":"corporate","risk":"high"},
+    {"id":"R-004","from_entity":"Employment Agreement","to_entity":"Westbrook Litigation","relation":"Evidence In","type":"litigation","risk":"high"},
+    {"id":"R-005","from_entity":"Indemnification Clause A-7","to_entity":"Westbrook Litigation","relation":"Defense Basis","type":"litigation","risk":"medium"},
+    {"id":"R-006","from_entity":"LexOS EU BV","to_entity":"SOC 2 Type II","relation":"Certified Under","type":"compliance","risk":"low"}
+  ],
+  "integration_summary": [
+    {"key":"connected","value":"6"},{"key":"total","value":"9"},
+    {"key":"records_synced_24h","value":"27.7K"},{"key":"avg_uptime_pct","value":"99.1"},{"key":"pending_setup","value":"2"}
+  ],
+  "integrations": [
+    {"id":"sap","name":"SAP S/4HANA","category":"ERP","logo":"🏭","status":"connected","lastSync":"2 min ago","recordsSync":"12,840","description":"Contract data, purchase orders, and vendor management sync","features":["Contract Lifecycle","Vendor Management","Invoice Matching"],"health":99.8},
+    {"id":"salesforce","name":"Salesforce CRM","category":"CRM","logo":"☁️","status":"connected","lastSync":"5 min ago","recordsSync":"8,220","description":"Deal contracts, NDAs, and customer agreement tracking","features":["Opportunity Contracts","NDA Automation","E-Signature Triggers"],"health":98.2},
+    {"id":"workday","name":"Workday HCM","category":"HR","logo":"👥","status":"connected","lastSync":"12 min ago","recordsSync":"3,401","description":"Employment contracts, ESOP grants, and compliance records","features":["Employment Contracts","ESOP Tracking","Policy Acknowledgements"],"health":97.5},
+    {"id":"docusign","name":"DocuSign","category":"E-Signature","logo":"✍️","status":"connected","lastSync":"1 min ago","recordsSync":"2,180","description":"Digital signature workflows and contract execution tracking","features":["Signature Workflows","Audit Trail","Template Library"],"health":100.0},
+    {"id":"slack","name":"Slack","category":"Communication","logo":"💬","status":"warning","lastSync":"1h 32m ago","recordsSync":"—","description":"Legal alerts, approval notifications, and team collaboration","features":["Alert Notifications","Approval Workflows","Legal Bot"],"health":72.0},
+    {"id":"jira","name":"Jira","category":"Project Mgmt","logo":"🎯","status":"connected","lastSync":"18 min ago","recordsSync":"1,045","description":"Legal matter tracking, task assignment, and deadline management","features":["Matter Tracking","SLA Alerts","Board Integrations"],"health":96.1},
+    {"id":"sharepoint","name":"SharePoint","category":"Document Mgmt","logo":"📁","status":"disconnected","lastSync":"Never","recordsSync":"—","description":"Document management, version control, and team collaboration","features":["Document Sync","Version Control","Access Management"],"health":0.0},
+    {"id":"servicenow","name":"ServiceNow","category":"ITSM","logo":"⚙️","status":"pending","lastSync":"Connecting...","recordsSync":"—","description":"IT risk governance, policy management, and audit tracking","features":["Risk Management","Policy Compliance","Audit Logs"],"health":0.0},
+    {"id":"greenhouse","name":"Greenhouse","category":"Recruiting","logo":"🌱","status":"disconnected","lastSync":"Never","recordsSync":"—","description":"Employment contracts, offer letter automation, and I-9 compliance","features":["Offer Contracts","I-9 Management","Background Checks"],"health":0.0}
+  ],
+  "integration_activity": [
+    {"time":"2m ago","event":"Salesforce sync completed — 42 new contracts imported","status":"success"},
+    {"time":"5m ago","event":"DocuSign: 3 signatures received on MSA — Acme Corp","status":"success"},
+    {"time":"14m ago","event":"SAP: 8 vendor contracts flagged for review","status":"info"},
+    {"time":"1h ago","event":"Slack integration: Webhook timeout error (retrying)","status":"warning"},
+    {"time":"2h ago","event":"Workday: ESOP grant batch processed — 23 employees","status":"success"},
+    {"time":"3h ago","event":"Jira: 5 legal matters closed — SLA within target","status":"success"}
+  ]
+}
