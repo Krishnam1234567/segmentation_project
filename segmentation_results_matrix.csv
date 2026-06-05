@@ -1,0 +1,2 @@
+Network,IoU (% ↑),DSC (% ↑),Precision (% ↑),Recall/Sens (% ↑),Specificity (% ↑),Accuracy (% ↑),HD95 (mm ↓),ASD (mm ↓),VOE (% ↓),L-F1 (% ↑),F1-score (% ↑),MCC (% ↑),p-value
+DynamicLiteUNet,4.90 ± 9.97,7.99 ± 14.36,11.30 ± 20.47,10.27 ± 20.34,98.70 ± 2.47,97.43 ± 2.68,96.08 ± 20.47,53.36 ± 23.49,95.10 ± 9.97,7.99 ± 14.36,7.99 ± 14.36,8.17 ± 15.43,N/A
