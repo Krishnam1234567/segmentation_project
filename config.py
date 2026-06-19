@@ -34,6 +34,11 @@ class Config:
     def test_mask_dir(self) -> str:
         return os.path.join(self.base_dir, "test", "masks")
 
+    @property
+    def unlabeled_image_dir(self) -> str:
+        return os.path.join(self.base_dir, "test", "images")
+
+
     # ── Image / model ──────────────────────────────────────────────────
     img_size: Tuple[int, int] = (224, 224)
     num_classes: int = 2
@@ -46,10 +51,12 @@ class Config:
 
     # ── Training ───────────────────────────────────────────────────────
     batch_size: int = 8
+    unlabeled_batch_size: int = 8
     num_epochs: int = 5
     patience: int = 3
     grad_accum_steps: int = 1
     use_amp: bool = False  # Set True only if you have a CUDA GPU
+    use_ssl: bool = True
     seed: int = 42
 
     # ── Subset limits (None = use all) ─────────────────────────────────
@@ -68,7 +75,8 @@ class Config:
 
     # ── Augmentation ───────────────────────────────────────────────────
     augment: bool = True
-    use_cutmix: bool = True
+    use_cutmix: bool = False  # Set False as it can be unstable with SSL
+
     use_mixup: bool = True
     mixup_alpha: float = 0.2
     cutmix_alpha: float = 0.2

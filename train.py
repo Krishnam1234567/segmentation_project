@@ -18,13 +18,17 @@ import torch
 from torch.utils.data import DataLoader, Subset
 from tqdm import tqdm
 
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+
 from config import Config, set_seed
-from dataset import UNetDataset
+from dataset import UNetDataset, UnlabeledDataset
 from inference import predict_with_tta, show_advanced_predictions
 from losses import CombinedLoss
 from metrics import compute_extended_metrics
 from model import DynamicLiteUNet
-from trainer import Trainer, WarmupCosineScheduler
+from trainer import Trainer, WarmupCosineScheduler, MeanTeacherTrainer
+
 
 
 def parse_args() -> argparse.Namespace:
@@ -40,6 +44,9 @@ def parse_args() -> argparse.Namespace:
                    help="Max test samples to use (default: 50).")
     p.add_argument("--no-tta", action="store_true",
                    help="Disable Test-Time Augmentation.")
+    p.add_argument("--no-ssl", action="store_true",
+                   help="Disable Mean Teacher SSL.")
+    p.add_argument("--unlabeled-batch-size", type=int, default=None)
     p.add_argument("--seed", type=int, default=None)
     return p.parse_args()
 
@@ -61,9 +68,13 @@ def build_config(args: argparse.Namespace) -> Config:
         kwargs["max_train_samples"] = args.max_train
     if args.max_test is not None:
         kwargs["max_test_samples"] = args.max_test
+    if args.unlabeled_batch_size is not None:
+        kwargs["unlabeled_batch_size"] = args.unlabeled_batch_size
     cfg = Config(**kwargs)
     if args.no_tta:
         cfg.use_tta = False
+    if args.no_ssl:
+        cfg.use_ssl = False
     return cfg
 
 
@@ -147,6 +158,20 @@ def main() -> None:
         test_subset, batch_size=cfg.eval_batch_size, shuffle=False,
     )
 
+    if cfg.use_ssl:
+        unlabeled_aug = A.Compose([
+            A.HorizontalFlip(p=0.5), A.VerticalFlip(p=0.5), A.Rotate(limit=15, p=0.5),
+            A.Resize(*cfg.img_size),
+            A.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), ToTensorV2()
+        ])
+        unlabeled_ds = UnlabeledDataset(
+            cfg.unlabeled_image_dir, cfg.img_size, augment_transform=unlabeled_aug
+        )
+        print(f"SSL enabled. Unlabeled dataset: {len(unlabeled_ds)}")
+        unlabeled_loader = DataLoader(
+            unlabeled_ds, batch_size=cfg.unlabeled_batch_size, shuffle=True, drop_last=True
+        )
+
     # ── Device ───────────────────────────────────────────────────────
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
@@ -173,27 +198,43 @@ def main() -> None:
     )
 
     # ── 1. Train ─────────────────────────────────────────────────────
-    trainer = Trainer(
-        model, (train_loader, val_loader),
-        criterion, optimizer, scheduler, device, cfg,
-    )
+    if cfg.use_ssl:
+        teacher_model = DynamicLiteUNet(
+            in_channels=cfg.in_channels,
+            num_classes=cfg.num_classes,
+            base_c=cfg.base_c,
+        )
+        teacher_model.load_state_dict(model.state_dict())
+        teacher_model.to(device)
+
+        trainer = MeanTeacherTrainer(
+            model, teacher_model, (train_loader, unlabeled_loader, val_loader),
+            criterion, optimizer, scheduler, device, cfg,
+        )
+    else:
+        trainer = Trainer(
+            model, (train_loader, val_loader),
+            criterion, optimizer, scheduler, device, cfg,
+        )
+        
     history = trainer.fit()
 
     # ── 2. Evaluate on test set ──────────────────────────────────────
     print("\nLoading best model for evaluation...")
-    model.load_state_dict(torch.load(cfg.best_model_path, weights_only=True))
-    model.eval()
-    model.to(device)
+    model_to_eval = teacher_model if cfg.use_ssl else model
+    model_to_eval.load_state_dict(torch.load(cfg.best_model_path, weights_only=True))
+    model_to_eval.eval()
+    model_to_eval.to(device)
 
     all_preds, all_masks = [], []
 
     for imgs, masks in tqdm(test_loader, desc="Testing"):
         imgs, masks = imgs.to(device), masks.to(device)
         if cfg.use_tta:
-            outputs = predict_with_tta(model, imgs)
+            outputs = predict_with_tta(model_to_eval, imgs)
         else:
             with torch.no_grad():
-                outputs = model(imgs)
+                outputs = model_to_eval(imgs)
         preds = torch.argmax(outputs, dim=1)
         all_preds.append(preds.cpu())
         all_masks.append(masks.cpu())

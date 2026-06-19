@@ -223,3 +223,52 @@ class UNetDataset(Dataset):
             mask = torch.from_numpy(mask).long() // 255
 
         return image, mask
+
+# ── Unlabeled Dataset ────────────────────────────────────────────────────
+
+
+class UnlabeledDataset(Dataset):
+    """
+    Dataset for unannotated images, used in Semi-Supervised Learning (SSL).
+    Applies spatial augmentations to create consistency targets.
+    """
+
+    _IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".bmp", ".tif"}
+
+    def __init__(
+        self,
+        image_dir: str,
+        img_size: Tuple[int, int] = (224, 224),
+        augment_transform=None,
+    ):
+        self.image_dir = image_dir
+        self.img_size = img_size
+        
+        self.image_files = sorted([
+            f for f in os.listdir(image_dir)
+            if os.path.splitext(f)[1].lower() in self._IMAGE_EXTS
+        ])
+        
+        self.to_tensor = transforms.ToTensor()
+        self.normalize = transforms.Normalize(
+            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+        )
+        self.aug_transform = augment_transform
+
+    def __len__(self) -> int:
+        return len(self.image_files)
+
+    def __getitem__(self, idx: int) -> torch.Tensor:
+        img_path = os.path.join(self.image_dir, self.image_files[idx])
+        image = cv2.imread(img_path)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        
+        if self.aug_transform is not None:
+            transformed = self.aug_transform(image=image)
+            image = transformed["image"]
+        else:
+            image = cv2.resize(image, self.img_size)
+            image = self.to_tensor(image)
+            image = self.normalize(image)
+            
+        return image
