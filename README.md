@@ -6,6 +6,7 @@ The model was trained to perform binary segmentation (Background vs. Tumor) on M
 
 ## 🚀 Features
 - **DynamicLiteUNet Architecture**: Utilizes mixture-of-experts depthwise convolutions, gated skip connections, and a global depthwise bottleneck.
+- **Mean Teacher SSL Integration**: Leverages unannotated images for Consistency Regularization. Trains a Student model with noise/perturbations and maintains a stable Exponential Moving Average (EMA) Teacher model.
 - **Deep Supervision**: Auxiliary outputs from intermediate decoder stages to stabilize training.
 - **Robust Loss Function**: Combines Dice Loss, Cross-Entropy Loss, and Sobel-weighted Boundary Loss.
 - **Data Augmentation**: MixUp, CutMix, and geometric transformations via Albumentations.
@@ -57,21 +58,21 @@ pip install -r requirements.txt
 You can train and test the model using the provided CLI:
 
 ```bash
-# Standard run (uses 100 train / 50 test subset by default)
-python train.py --base-dir segmentation_task
+# Standard run (uses SSL and trains on a subset by default)
+python train.py
 
-# Full dataset run (specify max bounds)
-python train.py --base-dir segmentation_task --max-train 3933 --max-test 860
+# Full dataset run (specify max bounds and 3 epochs)
+python train.py --epochs 3 --batch-size 16 --unlabeled-batch-size 16 --max-train 10000 --max-test 10000
 
-# Test-only mode (evaluates the saved best_model.pth without retraining)
-python train.py --base-dir segmentation_task --test-only
+# Disable SSL (train baseline model)
+python train.py --no-ssl
 ```
 
 ## 📁 Repository Structure
 
-- `dataset.py` — `UNetDataset` with robust handling of image/mask naming conventions and caching.
+- `dataset.py` — `UNetDataset` and `UnlabeledDataset` (for SSL) with robust caching.
 - `model.py` — `DynamicLiteUNet` implementation.
-- `trainer.py` — AMP-enabled training loop with cosine warmup scheduling and early stopping.
+- `trainer.py` — Contains standard `Trainer` and `MeanTeacherTrainer` with SSL consistency logic.
 - `losses.py` — `CombinedLoss` (Dice + CE + Boundary).
 - `metrics.py` — Comprehensive evaluation metrics.
 - `inference.py` — Test-Time Augmentation (TTA) and visual rendering.
