@@ -56,8 +56,8 @@ class BoundaryLoss(nn.Module):
     def forward(self, logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
         with torch.no_grad():
             targets_float = targets.float().unsqueeze(1)
-            gx = F.conv2d(targets_float, self.sobel_x, padding=1)
-            gy = F.conv2d(targets_float, self.sobel_y, padding=1)
+            gx = F.conv2d(targets_float, self.sobel_x.to(targets.device), padding=1)
+            gy = F.conv2d(targets_float, self.sobel_y.to(targets.device), padding=1)
             edge = (torch.sqrt(gx ** 2 + gy ** 2) > 0.5).float()
 
         probs = F.softmax(logits, dim=1)
