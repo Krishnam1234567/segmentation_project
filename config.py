@@ -20,23 +20,23 @@ class Config:
 
     @property
     def train_image_dir(self) -> str:
-        return os.path.join(self.base_dir, "train", "images")
+        return os.path.join(self.base_dir, "train", "train_img")
 
     @property
     def train_mask_dir(self) -> str:
-        return os.path.join(self.base_dir, "train", "masks")
+        return os.path.join(self.base_dir, "train", "train_liver_masks")
 
     @property
     def test_image_dir(self) -> str:
-        return os.path.join(self.base_dir, "test", "images")
+        return os.path.join(self.base_dir, "test", "test_img")
 
     @property
     def test_mask_dir(self) -> str:
-        return os.path.join(self.base_dir, "test", "masks")
+        return os.path.join(self.base_dir, "test", "test_liver_masks")
 
     @property
     def unlabeled_image_dir(self) -> str:
-        return os.path.join(self.base_dir, "test", "images")
+        return os.path.join(self.base_dir, "test", "test_img")
 
 
     # ── Image / model ──────────────────────────────────────────────────
